@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+			<script type="text/javascript">
+				function removeFromCart(pid){
+					if(confirm("您确认要丢弃我吗")){
+						location.href="${pageContext.request.contextPath}/cart/remove?pid="+pid;
+					}
+				}
+			</script>
+
+	</body>
+</html>

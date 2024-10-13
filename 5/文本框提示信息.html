@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			.search {
+				position: relative;
+				width: 200px;
+				margin: 100px;
+			}
+			.content{
+				display: none;
+				position: absolute;
+				top: -50px;
+				width: 180px;
+				border: 1px solid #dfdfdf;
+				box-shadow: 0 2px 4px #dfdfdf;
+				padding: 5px 0;
+				font-style: 20px;
+				line-height: 20px;
+				color: #333;
+			}
+			.content::before{
+				content: '';
+				width: 0;
+				height: 0;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="search">
+			
+			<div class="content"></div>
+			<label for="">
+				快递单号:
+				<input type="text" placeholder="请输入快递单号" class="num">
+			</label>
+		</div>
+		<script>
+			var content = document.querySelector('.content');
+			var num = document.querySelector('.num');
+			num.addEventListener('keyup',function(){//添加keyup对象，输入完毕后，进行内容检测
+				//为空，不显示
+				if (this.value == ''){
+					content.style.display = 'none';
+				
+				}else{
+					//否则显示文本提示框
+					content.style.display = "block";
+					content.innerText = this.value;
+				}
+			});
+			num.addEventListener('blur',function(){
+				//失去焦点隐藏，不显示content元素
+				content.style.display = 'none'
+				
+			});
+			//获取焦点，显示content元素
+			num.addEventListener('focus',function(){
+				
+				content.style.display = 'block';
+				
+			});
+		</script>
+	</body>
+</html>

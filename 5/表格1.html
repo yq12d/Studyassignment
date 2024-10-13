@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			body{
+				width: 100%;
+				margin: o auto;
+				height: 300px;
+				position: fixed;
+			}
+			table{
+				width: 500px;
+				height: auto;
+				position: relative;
+				left: 50%;
+				margin-left: -250px;
+				justify-content: center;
+				align-content: center;
+				align-items: center;
+			}
+			tr{
+				display: flex;
+				
+				
+				
+				border-bottom: 1px solid #333;
+				
+			}
+			td{
+				width: 500px;
+				height: auto;
+				position: relative;
+				left: 50%;
+				margin-left: -308px;
+				
+				justify-content: center;
+				align-content: center;
+				align-items: center;
+			}
+			th{
+				flex: 1;
+			}
+			thead tr{
+				height: 40px;
+				
+				background-color: burlywood;
+			}
+		</style>
+	</head>
+	<body>
+		<table cellspacing='0'>
+			<thead>
+				<tr>
+					<th>姓名</th>
+					<th>科目</th>
+					<th>成绩</th>
+					<th>操作</th>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		<script>
+			var datas =[{
+				name:'张三',
+				subject:'JavaScript',
+				score:100
+			},{
+				name:'李四',
+				subject:'JavaScript',
+				score:90
+
+			},{
+				name:'刘五',
+				subject:'JavaScript',
+				score:90
+
+			}]
+			var tbody=document.querySelector('tbody');
+			for(var i=0;i<datas.length;i++){
+				var tr=document.createElement('tr');
+				tbody.appendChild(tr);
+				for(var k in datas[i]){
+					var td=document.createElement('td');
+					td.innerHTML=datas[i][k];
+					tr.appendChild(td);
+				}
+				var td=document.createElement('td');
+				tr.appendChild(td);
+				td.innerHTML='<a href="javascript:;">删除</a>';
+				
+			}
+			var as= document.querySelectorAll("a");
+			for(var i=0; i<as.length;i++){
+				as[i].onclick=function(){
+					tbody.removeChild(this.parentNode.parentNode)
+				}
+			}
+		
+		</script>
+		</table>
+	</body>
+</html>

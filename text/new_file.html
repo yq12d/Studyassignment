@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>智能会议主机</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="https://cdn.socket.io/4.0.0/socket.io.min.js"></script>
+</head>
+<body>
+    <h1>欢迎使用智能会议主机</h1>
+    <div id="transcription-result"></div>
+    <form id="summary-form">
+        <textarea id="transcription-text" name="transcription" rows="10" cols="50"></textarea>
+        <button type="button" onclick="generateSummary()">生成会议总结</button>
+    </form>
+    <div id="summary-result"></div>
+    <script src="static/js/main.js"></script>
+</body>
+</html>

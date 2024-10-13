@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			*{
+				margin: 0px;
+				padding: 0px;
+			}
+			li{
+				list-style-type: none;
+			}
+			.tab{
+				margin: 50px auto;
+				width: 600px;
+				height: 600px;
+				border: 1px solid black;
+			}
+			.tabe{
+				height: 30px;
+				background-color: burlywood;
+				border: 1px solid #AAAA00;
+			}
+			.tabe li{
+				float: left;
+				height: 30px;
+				line-height: 30px;
+				padding: 0px 20px;
+				cursor: pointer;
+			}
+			.current{
+				background-color: #aaaa7f;
+				color: #ffffff;
+			}
+			.tab-con{
+				display: display;
+			}
+			.it{
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="tab">
+			<div class="tabe">
+				<ul>
+					<li class="current">商品介绍</li>
+					<li>规格与包装</li>
+					<li>售后保障</li>
+					<li>商品评价</li>
+					<li>手机社区</li>
+				</ul>
+			</div>
+			<div class="tab-con">
+				<div class="it" style="display: block;">商品介绍模块内容</div>
+				<div class="it">规格与包装模块内容</div>
+				<div class="it">售后保障模块内容</div>
+				<div class="it">商品评价模块内容</div>
+				<div class="it">手机社区模块内容</div>
+			</div>
+		</div>
+		
+		<script>
+			var tabe=document.querySelector('.tabe');
+			var lis=tabe.querySelectorAll('li');
+			var items=document.querySelectorAll('.it');
+			for(var i=0;i<lis.length;i++){
+				lis[i].setAttribute('index',i);
+				lis[i].onclick=function(){
+					for(var i=0;i<lis.length;i++){
+						lis[i].className='';
+					}
+					this.className='current';
+					var index=this.getAttribute('index');
+					for(var i=0;i<items.length;i++){
+						items[i].style.display='none';
+					}
+					items[index].style.display='block';
+				};
+			}
+		</script>
+	</body>
+</html>

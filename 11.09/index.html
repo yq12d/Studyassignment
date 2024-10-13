@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<button>按钮1</button>
+		<button>按钮2</button>
+		<button>按钮3</button>
+		<button>按钮4</button>
+		<button>按钮5</button>
+		<button>按钮6</button>
+		<script type="text/javascript">
+			var bts = document.querySelectorAll('button');
+			 for(var i = 0; i<bts.length;i++){
+			 	bts[i].onclick = function({
+			 		for (var i =0;i<bts.length;i++) {
+			 			bts[i].style.backgroundColor = '';
+			 		}
+			 		this.style.backgroundColor = 'blue';
+			 	}
+			 }
+		</script>
+	</body>
+</html>

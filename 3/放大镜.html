@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			.preview_img{
+				position: absolute;
+				border: 1px solid #ccc;
+			}
+			.mask{
+				display: none;
+				width: 200px;
+				height: 200px;
+				background-color: red;
+				opacity: 0.5;
+				position: absolute;
+			}
+			.big{
+				display: none;
+				width: 600px;
+				height: 700px;
+				position: absolute;
+				left: 600px;
+				top: 0;
+				border: 2px solid #ccc;
+				overflow: hidden;
+			}
+			.bigIMg{
+				position: absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<div class="preview_img">
+			<img src="img/1.jpg" alt="">
+			<div class="mask">
+				
+			</div>
+			<div class="big">
+				<img src="img/2.jpg" alt="" class="bigIMg">
+			</div>
+		</div>
+		<script>
+			var mask=document.querySelector('.mask');
+			var preview=document.querySelector('.preview_img');
+			var big=document.querySelector('.big');
+			var bigIMG=document.querySelector('.bigIMg');
+			
+			preview.onmousemove=function(event){
+				mask.style.display='block';
+				
+				var maskX=event.clientX-preview.offsetLeft-mask.offsetWidth/2;
+				var maskY=event.clientY-preview.offsetTop-mask.offsetHeight/2;
+				
+				var maskMaxX=preview.offsetWidth-mask.offsetWidth;
+				var maskMaxY=preview.offsetHeight-mask.offsetHeight;
+				
+				if(maskX<0){
+					maskX=0;
+				}else if(maskX>maskMaxX){
+					maskX=maskMaxX;
+				}
+				if(maskY<0){
+					maskY=0;
+				}else if(maskY>=maskMaxY){
+					maskY=maskMaxY;
+				}
+				mask.style.left=maskX+'px';
+				mask.style.top=maskY+'px';
+				big.style.display='block';
+				var bigIMgMax=bigIMg.offsetWidth-big.offsetWidth;
+				var bigIMgX=maskX*bigIMgMaX/maskMaxX;
+				var bigIMgY=maskY*bigIMgMax/maskMaxY;
+				bigIMg.style.left=-bigIMgX+'px';
+				bigIMg.style.top=-bigIMgY+'px';
+			};
+			preview.onmouseleave=function(){
+				big.style.display='none';
+				mask.style.display='none';
+			};
+		</script>
+	</body>
+</html>

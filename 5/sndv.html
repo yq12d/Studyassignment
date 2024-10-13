@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+	</head>
+	<body>
+		<script>
+			function Student(name,age){
+				this.name=name;
+				this.age=age;
+			this.sayHello = function(){
+				console.log('你好，我是'+this.name);
+			};
+			}
+			var stu1 = new Student('小明',18);
+			console.log(stu1.name);
+			console.log(stu1.sayHello());
+			var stu2 = new Student('小红',19);
+			console.log(stu2.name);
+			console.log(stu2.sayHello());
+			var stu3 = new Student('老六',17);
+			console.log(stu3.name);
+			console.log(stu3.sayHello());
+		</script>
+	</body>
+</html>

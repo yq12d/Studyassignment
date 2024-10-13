@@ -1,0 +1,53 @@
+/* 导航栏 */
+body {
+			    margin: 0;
+			    font-family: Arial, sans-serif;
+			}
+			
+			.navbar {
+			    display: flex;
+			    justify-content: space-around;
+			    align-items: center;
+			    background-color: burlywood;	
+			    padding: 10px 0;
+			}
+			
+			.nav-link {
+			    color: white;
+			    text-decoration: none;
+			    padding: 10px 20px;
+			    transition: background-color 0.3s ease, color 0.3s ease, transform 0.3s ease, border-bottom 0.3s ease; /* Added transition for smooth effects */
+			    border-bottom: 3px solid transparent; /* Initial border color */
+			}
+			
+			.nav-link:hover {
+			    background-color: white;
+			    color: #ff7e5f; /* Change text color on hover */
+			    transform: scale(1.1); /* Scale the link to create a pop effect */
+			    border-bottom: 3px solid #ff7e5f; /* Border appears on hover */
+			}
+
+
+h2{
+	text-align: center;
+}
+h3{
+	text-align: center;
+	
+}
+.txt{
+	text-align: center;
+	color: red;
+}
+
+.img{
+	text-align: center;
+}
+.center{
+	text-align: center;
+	
+}
+p{
+	font-family: "华文行楷";
+	font-size: 25px;
+}

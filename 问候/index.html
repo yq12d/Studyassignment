@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <title></title>
+ </head>
+ <body>
+  <img>
+  <div></div>
+  <script>
+   var img=document.querySelector('img');
+   var tx=document.querySelector('div');
+   var date=new Date();
+   var h=date.getHours();
+   if(h<6){
+    img.src='img/1.jpg';
+    tx.innerHTML='凌晨好呀！！';
+   }else if(h<9){
+    img.src='img/2.jpg';
+    tx.innerHTML='早上好呀！';
+     }else if(h<12){
+    img.src='img/3.jpg';
+    tx.innerHTML='上午好呀！';
+     }else if(h<14){
+    img.src='img/4.png';
+    tx.innerHTML='中午好呀！';
+     }else if(h<17){
+    img.src='img/5.jpg';
+    tx.innerHTML='下午好呀！';
+     }else if(h<19){
+    img.src='img/6.jpg';
+    tx.innerHTML='傍晚好呀！';
+     }else if(h<22){
+    img.src='img/7.jpg';
+    tx.innerHTML='晚上好呀！';
+   }else if(h>=22){
+    img.src='img/8.jpg';
+    tx.innerHTML='夜里好呀,你该休息啦！';
+   }
+  </script>
+ </body>
+</html>
+	</body>
+</html>

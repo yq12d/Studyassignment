@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>智能会议主机</title>
+    <link rel="stylesheet" href="static/css/style.css">
+    <script src="static/js/main.js"></script>
+</head>
+<body>
+    <header>
+        <h1>智能会议主机</h1>
+        <nav>
+            <ul>
+                <li><a href="#video-section">视频捕捉</a></li>
+                <li><a href="#audio-section">音频捕捉</a></li>
+                <li><a href="#face-section">人脸识别</a></li>
+                <li><a href="#summary-section">会议总结</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <div class="container">
+        <!-- 视频捕捉区域 -->
+        <section id="video-section" class="section">
+            <h2>视频捕捉</h2>
+            <button onclick="startVideoCapture()">开始视频捕捉</button>
+            <button onclick="stopVideoCapture()">停止视频捕捉</button>
+            <div id="video-output" class="output"></div>
+        </section>
+        
+        <!-- 音频捕捉和转录区域 -->
+        <section id="audio-section" class="section">
+            <h2>音频捕捉与转录</h2>
+            <button onclick="startAudioCapture()">开始音频捕捉</button>
+            <button onclick="stopAudioCapture()">停止音频捕捉</button>
+            <div id="transcription-result" class="output"></div>
+        </section>
+        
+        <!-- 人脸识别区域 -->
+        <section id="face-section" class="section">
+            <h2>人脸识别</h2>
+            <input type="file" id="image-file" accept="image/*">
+            <button onclick="recognizeFaces()">上传并识别人脸</button>
+            <div id="face-recognition-result" class="output"></div>
+        </section>
+        
+        <!-- 会议总结生成区域 -->
+        <section id="summary-section" class="section">
+            <h2>会议总结生成</h2>
+            <form id="summary-form">
+                <textarea id="transcription-text" name="transcription" rows="10" cols="50" placeholder="在此输入转录文本..."></textarea>
+                <button type="button" onclick="generateSummary()">生成会议总结</button>
+            </form>
+            <div id="summary-result" class="output"></div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>智能会议主机 &copy; 2024</p>
+    </footer>
+</body>
+</html>
