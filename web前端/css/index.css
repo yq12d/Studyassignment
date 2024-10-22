@@ -1,0 +1,28 @@
+ul{
+	list-style-type: none;
+	padding: 20px;
+}
+ ul li {
+	    display: inline-block;
+        width: 30%;
+        margin-bottom: 10px;
+		color: #666666;
+ }
+a {
+    text-decoration: none; /* 去掉下划线 */
+    color: #0565c6; /* 设置链接颜色 */
+}
+
+.container {
+	display: grid;
+	    place-items: center; /* 同时水平和垂直居中 */
+	    height: 100vh;
+}
+
+.img{
+	 display: flex;
+	            justify-content: center; /* 水平居中 */
+	            align-items: center; /* 垂直居中 */
+	            height: 100vh; /* 让容器占满整个视口高度 */
+	
+}
