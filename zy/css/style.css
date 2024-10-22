@@ -1,0 +1,23 @@
+li{
+	display:inline;
+	margin: 1px 22px;
+	font-size: 22px;
+	text-align: center;
+}
+div{
+	width: 837px;
+	height: 680px;
+	margin: 0 auto;
+	border: 1px solid #EEF3AA;
+	text-align: center;
+}
+a:active,a:visited,a:link{
+	text-decoration: none;
+	color: black;
+}
+a:hover{
+	text-decoration: underline;
+    border-bottom: 5px solid red;
+	color: red;
+}
+
