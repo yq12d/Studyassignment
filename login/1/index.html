@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<!-- <script src="https://unpkg.com/vue@next"></script> -->
+		<script src="js/v3.2.8/vue.global.prod.js" type="text/javascript" charset="utf-8"></script>
+	</head>
+	<style>
+	#app {
+	  display: flex;
+	  flex-direction: row;
+	  gap: 20px;
+	}
+	.shapes-container {
+	  width: 150px;
+	  display: flex;
+	  flex-direction: column;
+	  gap: 10px;
+	}
+	.shape {
+	  padding: 10px;
+	  background-color: #ccc;
+	  text-align: center;
+	  cursor: grab;
+	}
+	.square {
+	  border: 2px solid blue;
+	}
+	.circle {
+	  border: 2px solid red;
+	  border-radius: 50%;
+	}
+	.triangle {
+	  border: 2px solid green;
+	  clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+	}
+	.canvas {
+	  width: 500px;
+	  height: 500px;
+	  border: 2px dashed #000;
+	  position: relative;
+	}
+	.canvas-item {
+	  position: absolute;
+	  padding: 10px;
+	  background-color: rgba(200, 200, 200, 0.7);
+	}
+	</style>
+
+	<body>
+		<template>
+		  <div id="app">
+		    <div class="shapes-container">
+		      <div
+		        v-for="(shape, index) in shapes"
+		        :key="index"
+		        :draggable="true"
+		        @dragstart="onDragStart($event, shape)"
+		        class="shape"
+		        :class="shape.type"
+		      >
+		        {{ shape.name }}
+		      </div>
+		    </div>
+		    <div
+		      class="canvas"
+		      @dragover.prevent
+		      @drop="onDrop($event)"
+		    >
+		      <div
+		        v-for="(item, index) in canvasItems"
+		        :key="index"
+		        class="canvas-item"
+		        :style="{ top: item.y + 'px', left: item.x + 'px' }"
+		      >
+		        {{ item.name }}
+		      </div>
+		    </div>
+		  </div>
+		</template>
+		<script>
+		export default {
+		  data() {
+		    return {
+		      shapes: [
+		        { name: 'Square', type: 'square' },
+		        { name: 'Circle', type: 'circle' },
+		        { name: 'Triangle', type: 'triangle' },
+		      ],
+		      canvasItems: [],
+		    };
+		  },
+		  methods: {
+		    onDragStart(event, shape) {
+		      event.dataTransfer.setData('shape', JSON.stringify(shape));
+		    },
+		    onDrop(event) {
+		      const shape = JSON.parse(event.dataTransfer.getData('shape'));
+		      const x = event.offsetX;
+		      const y = event.offsetY;
+		      this.canvasItems.push({ ...shape, x, y });
+		    },
+		  },
+		};
+		</script>
+	</body>
+</html>
